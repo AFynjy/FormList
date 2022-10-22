@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Table from "./components/Table";
-import FormCard from "./components/FormCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Tables from "./components/Tables";
 
 function App() {
   return (
     <div className="App">
-      <Table />
+      {/*<Table />*/}
+        <Tables />
     </div>
   );
 }

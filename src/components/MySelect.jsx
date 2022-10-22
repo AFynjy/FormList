@@ -1,24 +1,23 @@
-import { useForm } from "react-hook-form";
+import React from 'react';
+import {Dropdown, DropdownButton, InputGroup, Form} from "react-bootstrap";
 
-export default function App() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-
-    console.log(watch("example")); // watch input value by passing the name of it
-
+const MySelect = () => {
     return (
-        /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {/* register your input into the hook by invoking the "register" function */}
-            <input defaultValue="test" {...register("example")} />
-
-            {/* include validation with required or other standard HTML validation rules */}
-            <input {...register("exampleRequired", { required: true })} />
-            {/* errors will return when field validation fails  */}
-            {errors.exampleRequired && <span>This field is required</span>}
-
-            <input type="submit" />
-        </form>
+        <InputGroup className="mb-3">
+            <DropdownButton
+                variant="outline-secondary"
+                title="Dropdown"
+                id="input-group-dropdown-1"
+            >
+                <Dropdown.Item href="#">Action</Dropdown.Item>
+                <Dropdown.Item href="#">Another action</Dropdown.Item>
+                <Dropdown.Item href="#">Something else here</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item href="#">Separated link</Dropdown.Item>
+            </DropdownButton>
+            <Form.Control aria-label="Text input with dropdown button" />
+        </InputGroup>
     );
-}
+};
 
+export default MySelect;
